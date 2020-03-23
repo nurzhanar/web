@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var fword = null;
+        var sword = null;
+   
+        function checkname(word){
+           if(word.length>=1 && word.length<=20){
+  				
+  			}
+  			else{
+  				alert('Should consist at least 1 character and cannot be more than 20')
+  			} 
+        }
+
+        function checkfirst(word){
+          fword=word;
+            check();
+        }
+        function checksecond(word){
+           sword=word;
+            check();
+  			
+        }
+
+    
+        function check(){
+       
+          var input1 = document.getElementById("first");
+          var input2 = document.getElementById("second");
+          if (fword==sword) {
+            input1.style.backgroundColor = "white";
+            input2.style.backgroundColor = "white";
+          }
+          if (fword.length!=sword.length) {
+            input1.style.backgroundColor = "red";
+            input2.style.backgroundColor = "red";
+            alert('Two passwords do not match')
+          }
+        }
+
+    
+      </script>
+</head>
+<style>
+   body{
+	 background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/agsquare.png);
+    font-size: 16px;
+   color: #222;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+}
+#main{
+  margin: 5% auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 280px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 40px 50px;
+ 
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+button {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+button:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+@media (max-width: 768px){
+  #main{
+	  display:grid;
+  	  grid-template-columns: 1fr;
+  }
+  #main> div a input button h1{
+     grid-column: 1;
+     margin-left:30%;
+  }
+
+}
+</style>
+<body>
+  <div id="main">
+ 
+      <h1>Sign up</h1>
+      
+      <input type="text" onchange=(checkname(this.value)) name="username" placeholder="Username" />
+      <input type="text" name="email" placeholder="E-mail" />
+      <input type="password" id="first" name="password" onchange="checkfirst(this.value)" placeholder="Password" />
+      <input type="password" id="second" name="password2" onchange="checksecond(this.value)" placeholder="Retype password" />
+      <div>
+      <button style="float:left" type="submit" >Sign me up</button>
+      <a href="Login.html"><button style="float:right" type="submit" >Login</button></a>
+      </div>
+      <div style="text-align: center;">
+    <a href="Homepage.html"><button  type="submit" >Home</button></a></div>
+  </div>
+
+</body>
+</html>
